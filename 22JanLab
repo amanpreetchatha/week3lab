@@ -1,0 +1,65 @@
+ Shivam Ahlawat (c0747797)
+ Amanpreet Chatha (c0746897)
+ 
+ 
+ --------------httpserver.js------------------
+ 
+ var http = require('http');
+var server = http.createServer(function (req, res){
+ if (req.url == '/') { 
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.write('<html><body><p>This is home Page.</p></body></html>');
+    res.end();
+ }
+ else if (req.url == "/hello") {
+
+ res.writeHead(200, { 'Content-Type': 'text/html' });
+ res.write('<html><body><p><h1>This is a Hello Page.</h1></p></body></html>');
+ res.end();
+
+ }
+ else if (req.url == "/name") {
+
+ res.writeHead(200, { 'Content-Type': 'text/html' });
+ res.write('<html><body><p><h1>This is a Name Page.</h1></p></body></html>');
+ res.end();
+
+ }
+ else
+ res.end('Invalid Request! Try again');
+});
+server.listen(8080);
+console.log('Node.js web server at port 8080 is running..')
+
+
+
+--------------------------log.js-------------------------
+
+var log = {
+    info: function (info) {
+    console.log('Info: ' + info);
+    },
+    warning:function (warning) {
+    console.log('Warning: ' + warning);
+    },
+    error:function (error) {
+    console.log('Error: ' + error);
+    }
+    };
+    module.exports = log
+
+
+	
+--------------------------app.js-----------------------
+var myLogModule = require('./Log.js');
+myLogModule.info('Node.js started');
+
+
+
+-------------------message.js------------------------
+module.exports = 'Hello world';
+
+
+ 
+ 
+ 
